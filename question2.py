@@ -28,11 +28,15 @@ def createBarGraph(file:str, num4Other:int = None):
         
         # Add 'Others' key and value
         jsonData['Others'] = otherCount
-        print("The following keys were less than " + str(num4Other) + " and were aggregated into 'Others': \n" + str(otherKeys))
+        print("The following keys were less than " + str(num4Other) + " and were aggregated into 'Others': \nexit" + str(otherKeys))
 
     # convert to dataFrame
     df = pd.DataFrame({'Type': jsonData.keys(), 'Count': jsonData.values()})
     ax = df.plot.bar(x='Type', y='Count', rot=0)
+
+    # put count as text at top of each bar
+    for index, value in enumerate(jsonData.values()):
+        plt.text(index-0.1, value+5, str(value))
     plt.show() # show resulting bar chart
 
 ### Censys API HTTP Aggregate Data Connection
@@ -54,7 +58,7 @@ def saveDataToFile(ipBlock:str, field:str, fileName:str):
     jsonCounts = getAggregateData(block="ip: " + ipBlock, field=field)
 
     with open(fileName, 'w') as f:
-        json.dump(jsonCounts, f)
+        json.dump(jsonCounts, f, indent=4)
 
     print("Data saved to file: " + fileName)
     return jsonCounts
