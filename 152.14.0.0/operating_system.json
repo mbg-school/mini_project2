@@ -1,0 +1,16 @@
+{
+    "windows": 282,
+    "linux": 170,
+    "enterprise linux": 16,
+    "windows ce": 5,
+    "jetdirect": 4,
+    "dsm": 3,
+    "windows server 2008 r2": 2,
+    "fedora core linux": 1,
+    "freebsd": 2,
+    "hp officejet": 1,
+    "mac os x": 1,
+    "officejet pro": 1,
+    "vxworks": 1,
+    "windows server 2012": 1
+}

@@ -49,7 +49,13 @@ def getAggregateData(block: str, field: str):
 
     # iterate through each 'bucket' in JSON data
     for bucket in query["buckets"]:
-        result[bucket["key"]] = bucket["count"]
+        key = bucket["key"].lower()
+        if key in result:
+            result[key] += bucket["count"]
+        else:
+            result[key] = bucket["count"]
+
+        #result[bucket["key"]] = bucket["count"]
 
     return result
 
