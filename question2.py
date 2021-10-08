@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 ##### Graphing #####
 
 
-def createBarGraph(file: str, num4Other: int = None):
+def createBarGraph(file: str, title: str, num4Other: int = None):
     """Create a Bar Graph from JSON data (file), which will group those values <= num4Other into 'Other'
     category and remove them from original JSON data."""
     # load file as dict
@@ -42,7 +42,9 @@ def createBarGraph(file: str, num4Other: int = None):
 
     # put count as text at top of each bar
     for index, value in enumerate(jsonData.values()):
-        plt.text(index - 0.1, value + 5, str(value))
+        plt.text(index - 0.05, value + 1, str(value))
+
+    plt.title(title)
     plt.show()  # show resulting bar chart
 
 
