@@ -48,6 +48,44 @@ def createBarGraph(file: str, title: str, num4Other: int = None):
     plt.show()  # show resulting bar chart
 
 
+def createPieChart(file: str, title: str, num4Other: int = None):
+    """Create a Bar Graph from JSON data (file), which will group those values <= num4Other into 'Other'
+    category and remove them from original JSON data."""
+    # load file as dict
+    with open(file, "r") as f:
+        rawJsonData = json.load(f)
+
+    jsonData = rawJsonData.copy()
+    otherCount = 0
+    otherKeys = []
+    if num4Other:
+        for key in rawJsonData.keys():
+            if rawJsonData[key] <= num4Other:
+                count = jsonData.pop(key)  # remove from list, add to 'others'
+                otherCount += count
+                otherKeys.append(key)
+
+        # Add 'Others' key and value
+        jsonData["Others"] = otherCount
+        print(
+            "The following keys were less than "
+            + str(num4Other)
+            + " and were aggregated into 'Others': \nexit"
+            + str(otherKeys)
+        )
+
+    # convert to dataFrame
+    df = pd.DataFrame({"Type": jsonData.keys(), "Count": jsonData.values() }, index=jsonData.keys() )
+    ax = df.plot.pie(y="Count",rot=0, labels=None, autopct='%1.1f%%')
+
+    # put count as text at top of each bar
+    for index, value in enumerate(jsonData.values()):
+        plt.text(index - 0.05, value + 1, str(value))
+
+    plt.title(title)
+    plt.legend(labels = jsonData.keys())
+    plt.show()  # show resulting bar chart
+
 ### Censys API HTTP Aggregate Data Connection
 def getAggregateData(block: str, field: str):
     host = CensysHosts()  # create instance of Censys Host
