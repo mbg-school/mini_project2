@@ -4,15 +4,17 @@ from censys.search import CensysHosts
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# import matplotlib.pyplot as plt
-# import numpy as np
-
 ##### Graphing #####
-
-
 def createBarGraph(file: str, title: str, num4Other: int = None):
-    """Create a Bar Graph from JSON data (file), which will group those values <= num4Other into 'Other'
-    category and remove them from original JSON data."""
+    """
+    Creates a Bar Graph from JSON data (file), which will optionally group those values <= num4Other into 'Other'
+    category and remove them from original JSON data.
+    
+    Parameters:
+        file (str): the JSON file to read the data from
+        title (str): the title of the bar graph 
+        num4Other (int): (optional) the number of entries to be aggregated into the "others" category 
+    """
     # load file as dict
     with open(file, "r") as f:
         rawJsonData = json.load(f)
@@ -49,8 +51,15 @@ def createBarGraph(file: str, title: str, num4Other: int = None):
 
 
 def createPieChart(file: str, title: str, num4Other: int = None):
-    """Create a Bar Graph from JSON data (file), which will group those values <= num4Other into 'Other'
-    category and remove them from original JSON data."""
+    """
+    Creates a Pie Chart from JSON data (file), which will optionally group those values <= num4Other into 'Other'
+    category and remove them from original JSON data.
+    
+    Parameters:
+        file (str): the JSON file to read the data from
+        title (str): the title of the bar graph 
+        num4Other (int): (optional) the number of entries to be aggregated into the "others" category 
+    """
     # load file as dict
     with open(file, "r") as f:
         rawJsonData = json.load(f)
@@ -88,6 +97,17 @@ def createPieChart(file: str, title: str, num4Other: int = None):
 
 ### Censys API HTTP Aggregate Data Connection
 def getAggregateData(block: str, field: str):
+    """
+    Uses the Censys API aggregation endpoint to aggregate hosts into "buckets" 
+    
+    Parameters:
+        block (str): the IPv4 address block to query for hosts
+        field (str): the Censys API aggregation field
+
+    Returns:
+        result (dict): Returns a dict with the bucket name (aggregation metric) as the key
+                        and the total count of hosts that share that metric as the value. 
+    """
     host = CensysHosts()  # create instance of Censys Host
     result = {}
 
@@ -102,12 +122,22 @@ def getAggregateData(block: str, field: str):
         else:
             result[key] = bucket["count"]
 
-        # result[bucket["key"]] = bucket["count"]
-
     return result
 
 
 def saveDataToFile(ipBlock: str, field: str, fileName: str):
+    """
+    Uses the Censys API aggregation endpoint to aggregate hosts into "buckets" and saves/returns that Data to a JSON file. 
+    
+    Parameters:
+        ipBlock (str): the IPv4 address block to query for hosts
+        field (str): the Censys API aggregation field
+        fileName (str): the fileName of the JSON file to save the resulting aggregation data
+
+    Returns:
+        jsonCounts (dict): Returns a dict with the bucket name (aggregation metric) as the key
+                        and the total count of hosts that share that metric as the value. 
+    """
     jsonCounts = getAggregateData(block="ip: " + ipBlock, field=field)
 
     with open(fileName, "w") as f:
